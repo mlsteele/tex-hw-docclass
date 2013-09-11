@@ -1,0 +1,350 @@
+\documentclass{mshw}
+\begin{document}
+\acadclass{18.06 - Fall 2013}
+\title{Problem Set 1}
+\author{Miles Steele}
+
+\problem{1}{\#19 from 2.1}
+\begin{gather*}
+\overbrace{
+  \pmat{
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    1 & 0 & 1 \\
+  }
+}^E
+\pmat{ x \\ y \\ z } = \pmat{ x \\ y \\ z + x }
+\\
+\overbrace{
+  \pmat{
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    -1 & 0 & 1 \\
+  }
+}^{E^{-1}}
+\pmat{ x \\ y \\ z } = \pmat{ x \\ y \\ z - x }
+\\
+E \pmat{ 3 \\ 4 \\ 5 } = \pmat{ 3 \\ 4 \\ 8 }
+\\
+E^{-1} E \pmat{ 3 \\ 4 \\ 5 }
+= E^{-1} \pmat{ 3 \\ 4 \\ 8 }
+= \pmat{ 3 \\ 4 \\ 5 }
+\end{gather*}
+
+\problem{2}{\#19 from 2.2}
+\begin{gather*}
+\pmat{
+  1 & 4 & -2 \\
+  1 & 7 & -6 \\
+  0 & 3 & q \\
+}
+\pmat{ x \\ y \\ z }
+= \pmat{ 1 \\ 6 \\ t }
+\\
+\text{row}_2 \mathrel{{-}{=}} \text{row}_1
+\\
+\pmat{
+  1 & 4 & -2 \\
+  0 & 3 & -4 \\
+  0 & 3 & q \\
+}
+\pmat{ x \\ y \\ z }
+= \pmat{ 1 \\ 5 \\ t }
+\\
+\text{row}_3 \mathrel{{-}{=}} \text{row}_2
+\\
+\pmat{
+  1 & 4 & -2 \\
+  0 & 3 & -4 \\
+  0 & 0 & q + 4 \\
+}
+\pmat{ x \\ y \\ z }
+= \pmat{ 1 \\ 5 \\ t-5 }
+\end{gather*}
+
+\subproblem{Singular System ($q$)}
+If $q = -4$ then the third equation is $0 = t-5$, which exposes no information about $z$.\\
+Thus if $q = -4$ then the system is singular.
+
+\subproblem{No Solutions ($t$)}
+\emph{What value of $t$ results in the system having no solutions?}
+
+If $q = -4$ and $t = 5$ then the third equation is $0 = 0$. Thus the value of $z$ is irrelevant and the system has infinitely many solutions.
+
+\subproblem{Solution where $z=1$}
+Find the solution which has $z = 1$.
+\begin{gather*}
+q = -3 \\ t = 6
+\\
+\pmat{
+  1 & 4 & -2 \\
+  0 & 3 & -4 \\
+  0 & 0 & 1 \\
+}
+\pmat{ x \\ y \\ z }
+= \pmat{ 1 \\ 5 \\ 1 }
+\\
+z = 1 \\
+3 y - 4 z = 5 \\
+y = 3 \\
+x + 4 y - 2 z = 1 \\
+x = -9 \\
+\pmat{ x \\ y \\ z } = \pmat{ -9 \\ 3 \\ 1 }
+\end{gather*}
+
+
+\problem{3}{Graph Intersection}
+The graph of
+\[ y = a + bx + c\sin\f{\pi x}{2} \]
+passes through the points $(0, 2), (1, 6), (2, 12)$.
+
+Each pair of points represents an equation.
+\begin{gather*}
+\pmat{
+  1 & 0 & 0 \\
+  1 & 1 & 1 \\
+  1 & 2 & 0 \\
+}
+\pmat{ a \\ b \\ c }
+= \pmat{ 2 \\ 6 \\ 12 }
+\end{gather*}
+swap row$_2$ with row$_3$
+\begin{gather*}
+\pmat{
+  1 & 0 & 0 \\
+  1 & 2 & 0 \\
+  1 & 1 & 1 \\
+}
+\pmat{ a \\ b \\ c }
+= \pmat{ 2 \\ 12 \\ 6 }
+\end{gather*}
+That looks enough like a Gaussian Eliminated matrix.
+Back substitution, here we come.
+\begin{gather*}
+a = 2 \\
+2 + 2 b = 12 \\
+b = 5 \\
+2 + 5 + c = 6 \\
+c = -1
+\\
+\pmat{ a \\ b \\ c } = \pmat{ 2 \\ 5 \\ -1 }
+\end{gather*}
+
+\problem{4}{\#20 from 2.4}
+\begin{multicols}{2}
+\begin{align*}
+A &= \pmat{
+  0 & 2 & 0 & 0 \\
+  0 & 0 & 2 & 0 \\
+  0 & 0 & 0 & 2 \\
+  0 & 0 & 0 & 0
+} \\
+A^2 &= \pmat{
+  0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 4 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+} \\
+A^3 &= \pmat{
+  0 & 0 & 0 & 8 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+} \\
+A^4 &= \pmat{
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+} \\
+v &= \pmat{ x \\ y \\ z \\ t }\\
+\end{align*}
+\begin{align*}
+A v &= \pmat{
+  0 & 2 & 0 & 0 \\
+  0 & 0 & 2 & 0 \\
+  0 & 0 & 0 & 2 \\
+  0 & 0 & 0 & 0
+}
+\pmat{ x \\ y \\ z \\ t }
+= \pmat{ 2 y \\ 2 z \\ 2 t \\ 0 }
+\\
+A^2 v &= \pmat{
+  0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 4 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+}
+\pmat{ x \\ y \\ z \\ t }
+= \pmat{ 4 z \\ 4 y \\ 0 \\ 0 }
+\\
+A^3 v &= \pmat{
+  0 & 0 & 0 & 8 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+}
+\pmat{ x \\ y \\ z \\ t }
+= \pmat{ 8 t \\ 0 \\ 0 \\ 0 }
+\\
+A^4 v &= \pmat{
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+}
+\pmat{ x \\ y \\ z \\ t }
+= \pmat{ 0 \\ 0 \\ 0 \\ 0 }
+\\
+\end{align*}
+\end{multicols}
+
+
+\problem{5}{\#23 from 2.4}
+\subproblem{}
+\emph{Find a nonzero matrix $A$ for which $A^2 = 0$}.
+\begin{align*}
+A &= \pmat{
+ 0 & 1 \\
+ 0 & 0 \\
+} \\
+A^2 &= \pmat{
+  0 & 0 \\
+  0 & 0 \\
+}
+\end{align*}
+
+\subproblem{}
+\emph{Find a matrix that has $A^2 \neq 0$ but $A^3 = 0$.}
+\begin{align*}
+A &= \pmat{
+  0 & 2 & 0 & 0 \\
+  0 & 0 & 2 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+} \\
+A^2 &= \pmat{
+  0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+} \\
+A^3 &= \pmat{
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+}
+\end{align*}
+
+
+\newpage
+\problem{6}{\#3 from 2.5}
+\begin{gather*}
+\pmat{ 10 & 20 \\ 20 & 50 } \pmat{ x \\ y } = \pmat{ 1 \\ 0 }
+\\
+\text{row}_2 \mathrel{{-}{=}} 2 \text{row}_1
+\\
+\pmat{ 10 & 20 \\ 0 & 10 } \pmat{ x \\ y } = \pmat{ 1 \\ -2 }
+\\
+y = -0.2 \\
+10 x + 20 (-0.2) = 1 \\
+x = 0.5 \\
+\pmat{ x \\ y } = \pmat{ 0.5 \\ -0.2 0}
+\end{gather*}
+
+\begin{gather*}
+\pmat{ 10 & 20 \\ 20 & 50 } \pmat{ t \\ z } = \pmat{ 0 \\ 1 }
+\\
+\text{row}_2 \mathrel{{-}{=}} 2 \text{row}_1
+\\
+\pmat{ 10 & 20 \\ 0 & 10 } \pmat{ t \\ z } = \pmat{ 0 \\ 1 }
+\\
+z = 0.1 \\
+10 t + 20 (0.1) = 0 \\
+t = -0.2 \\
+\pmat{ t \\ z } = \pmat{ -0.2 \\ 0.1 }
+\end{gather*}
+
+\begin{gather*}
+A^{-1} = \pmat{ x & t \\ y & z } = \pmat{ 0.5 & -0.2 \\ -0.2 & 0.1 }
+\end{gather*}
+
+
+\newpage
+\problem{7}{\#3 from 2.6}
+% TODO
+
+\newpage
+\problem{8}{Upper Triangular Squares}
+\begin{lstlisting}
+julia> {triu(ones(n,n))^2 for n=1:5}
+5-element Array{Any,1}:
+ 1x1 Array{Float64,2}:
+ 1.0
+ 2x2 Array{Float64,2}:
+ 1.0  2.0
+ 0.0  1.0
+ 3x3 Array{Float64,2}:
+ 1.0  2.0  3.0
+ 0.0  1.0  2.0
+ 0.0  0.0  1.0
+ 4x4 Array{Float64,2}:
+ 1.0  2.0  3.0  4.0
+ 0.0  1.0  2.0  3.0
+ 0.0  0.0  1.0  2.0
+ 0.0  0.0  0.0  1.0
+ 5x5 Array{Float64,2}:
+ 1.0  2.0  3.0  4.0  5.0
+ 0.0  1.0  2.0  3.0  4.0
+ 0.0  0.0  1.0  2.0  3.0
+ 0.0  0.0  0.0  1.0  2.0
+ 0.0  0.0  0.0  0.0  1.0
+\end{lstlisting}
+
+It appears that the bottom triangle remains zeros but the upper triangle increases towards to the top-right where it reaches $n+1$.
+When trying to understand why this is, I found it helpful to think about splitting up the rows. The first row of $A^2$ is $A[1;:]*A$. $A^2[2;:] = A[2;:]*A$, etc.
+
+
+\newpage
+\problem{9}{Order Exploration}
+Cool.
+\begin{lstlisting}
+julia> [mean([order(rperm(j)) for i=1:10000]) for j=1:15]
+15-element Array{Float64,1}:
+  1.0
+  1.4963
+  2.1783
+  2.7911
+  3.9452
+  4.5654
+  6.2151
+  7.3896
+  9.043
+ 10.8293
+ 13.6837
+ 15.7355
+ 19.0345
+ 22.0164
+ 24.9219
+\end{lstlisting}
+I found that the average order depends greatly upon the size of the matrix. This makes some intuitive sense as their is more space to for the $P$ to wander around before finding its way back to $I$.
+
+
+\newpage
+\problem{10}{Speedy Computers}
+\begin{gather*}
+\underbrace{f(N)}_\text{fp.computations} = \f23 {\underbrace{N}_\text{vars}}^3 \\
+N_\text{blue} = 12,681,215 \\
+\underbrace{S_\text{blue}}_\text{speed of IBM} = 1 \\
+S_\text{ALAM} = 2 \\
+\f{f(N)}S = T \\
+\f{f(N_\text{blue})}{S_\text{blue}} = T
+= \f{f(N_\text{ALAM})}{S_\text{ALAM}} \\
+f(N_\text{blue}) = \f{f(N_\text{ALAM})}2 \\
+\f23 {N_\text{blue}}^3 = \f{{N_\text{ALAM}}^3}3 \\
+{\p{2 {N_\text{blue}}^3}}^{\f13} = {N_\text{ALAM}} \\
+N_\text{ALAM} \approx 15,977,329 \text{ variables.}
+\end{gather*}
+
+\end{document}
