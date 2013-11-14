@@ -18,8 +18,9 @@
 \RequirePackage{graphicx}
 \RequirePackage{parskip}
 \RequirePackage[fleqn]{amsmath}
-\RequirePackage{amsfonts, amssymb}
+\RequirePackage{amsfonts, amssymb, soul, pifont}
 \RequirePackage{multicol}
+\RequirePackage{cancel}
 \RequirePackage{listings}
 \RequirePackage{empheq}
 \RequirePackage{ifthen}
@@ -35,9 +36,34 @@
 \lfoot{}\cfoot{}\rfoot{\thepage}
 \pagestyle{fancy}
 
+% math common
 \newcommand{\f}[0]{\frac}
 \newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix}#1\end{vmatrix}}
+\newcommand{\pdt}[2]{\frac{\partial #1}{\partial #2}}
+
+% encasements
 \newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\br}[1]{\left\{#1\right\}}
+
+% logic
+\newcommand{\ltand}{\ensuremath{\text{ \textsc{and} }}}
+\newcommand{\ltor}{\ensuremath{\text{ \textsc{or} }}}
+\newcommand{\ltnot}{\ensuremath{\text{ \textsc{not} }}}
+\newcommand{\ltimplies}{\ensuremath{\text{ \textsc{implies} }}}
+
+% linguistics
+\newcommand{\optimhand}{\ding{43}}
+\newenvironment{morphemetree}[1]{
+  \begin{tikzpicture}
+  \tikzset{frontier/.style={distance from root=#1}}
+}{
+  \end{tikzpicture}
+}
+
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\ipas}[1]{\textipa{/#1/}}
 
 % academic class variable
 \newcommand\acadclass[1]{\def\@acadclass{#1}}
