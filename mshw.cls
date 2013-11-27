@@ -54,6 +54,9 @@
 \newcommand{\ltimplies}{\ensuremath{\text{ \textsc{implies} }}}
 
 % linguistics
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\ipas}[1]{\textipa{/#1/}}
+\newcommand{\ipab}[1]{\textbf{\textipa{#1}}}
 \newcommand{\optimhand}{\ding{43}}
 \newenvironment{morphemetree}[1]{
   \begin{tikzpicture}
@@ -61,9 +64,8 @@
 }{
   \end{tikzpicture}
 }
+\newenvironment{mtree_elastic}[0]{ \begin{tikzpicture} }{ \end{tikzpicture} }
 
-\newcommand{\ipa}[1]{\textipa{#1}}
-\newcommand{\ipas}[1]{\textipa{/#1/}}
 
 % academic class variable
 \newcommand\acadclass[1]{\def\@acadclass{#1}}
